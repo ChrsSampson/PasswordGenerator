@@ -46,13 +46,13 @@ class App {
     // input containers
     containers.forEach((container) => {
       const node = ce("div");
-      node.className = `${container}-container`;
+      node.className = `${container}-container form-group`;
       form.appendChild(node);
     });
 
     // submit button
     const submit = ce("button");
-    submit.className = "submit";
+    submit.classList = "submit button";
     submit.textContent = "Generate";
     form.appendChild(submit);
 
@@ -80,8 +80,7 @@ class App {
         type: "button",
         props: {
           id: "copy",
-          class: "button copy-button",
-          value: "Copy",
+          classList: "button copy-button",
         },
         event: "click",
         callback: (e) => {
@@ -156,6 +155,9 @@ class App {
       const t = qs(spec.selector);
       const i = new Input(t, spec.type, spec.props, spec.event, spec.callback);
     });
+
+    const b = qs(".copy-button");
+    b.innerHTML = `<svg height="48" width="48"><path d="M9 43.95q-1.2 0-2.1-.9-.9-.9-.9-2.1V10.8h3v30.15h23.7v3Zm6-6q-1.2 0-2.1-.9-.9-.9-.9-2.1v-28q0-1.2.9-2.1.9-.9 2.1-.9h22q1.2 0 2.1.9.9.9.9 2.1v28q0 1.2-.9 2.1-.9.9-2.1.9Zm0-3h22v-28H15v28Zm0 0v-28 28Z"/></svg>`;
   }
 
   init() {
